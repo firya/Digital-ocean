@@ -1,4 +1,4 @@
-#Настройка нескольких сайтов в разных контейнерах с одним nginx-proxy
+# Настройка нескольких сайтов в разных контейнерах с одним nginx-proxy
 
 > Суть этот туториала в том чтобы поднять отдельный контейнер с nginx-proxy, без спецефических параметров для каждого отдельного сайта и добавлять проекты постепенно с переменными окружения, при помощи которых будт автоматически подключаться домен и запрашиваться ssl сертификат через lets-encrypt
 
@@ -8,7 +8,7 @@
 - [How To Install and Use Docker on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04)
 - [How To Install Docker Compose on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-18-04)
 
-##Устновка единой Nginx-proxy для сайтов
+## Устновка единой Nginx-proxy для сайтов
 
 После настройки сервера и установка docker и docker-compose можем приступать к настройке nnginx-proxy. В качестве образа будем исполдьзовать уже готовый jwilder/nginx-proxy и jrcs/letsencrypt-nginx-proxy-companion для создания сертифкатов (мы же не хотим делать сайт без https в 21 веке?).
 
@@ -80,7 +80,7 @@ volumes:
 
 где `-d` — это ключ означающий поднятие контейнера в фоне.
 
-##Создадим сайт на wordpress используя docker-compose
+## Создадим сайт на wordpress используя docker-compose
 
 Выйдем в корень папки пользователя и создадим папку `wordpress`:
 
@@ -226,7 +226,7 @@ Version: 1.0
 
 Выйдем из контейнера командой `exit`.
 
-##Создадим контейнер с php для запуска простых сайтов
+## Создадим контейнер с php для запуска простых сайтов
 
 Выйдем в корень папки пользователя и создадим папку `simple_site`:
 
