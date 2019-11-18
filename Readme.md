@@ -280,4 +280,4 @@ networks:
 
 И поднимем этот контейнер:
 
-`docker-compose up`
+`docker-compose up -d`
