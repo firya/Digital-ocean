@@ -44,7 +44,7 @@ services:
   nginx-proxy:
     container_name: nginx-proxy
     image: jwilder/nginx-proxy
-    restart: always
+    restart: unless-stopped
     ports:
       - 80:80
       - 443:443
@@ -58,7 +58,7 @@ services:
   nginx-proxy-letsencrypt:
     container_name: nginx-proxy-letsencrypt
     image: jrcs/letsencrypt-nginx-proxy-companion
-    restart: always
+    restart: unless-stopped
     volumes: 
       - certs:/etc/nginx/certs
       - vhost.d:/etc/nginx/vhost.d
@@ -136,7 +136,7 @@ services:
       - "3306:3306"
     volumes:
       - db_data:/var/lib/mysql
-    restart: always
+    restart: unless-stopped
     environment:
       - MYSQL_DATABASE=wordpress
       - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
@@ -154,7 +154,7 @@ services:
     volumes:
       - ./config/uploads.conf:/usr/local/etc/php/conf.d/uploads.ini
       - ./theme:/var/www/html/wp-content/themes/yourtheme
-    restart: always
+    restart: unless-stopped
     environment:
       - VIRTUAL_HOST=$VIRTUAL_HOST
       - LETSENCRYPT_HOST=$LETSENCRYPT_HOST
@@ -261,7 +261,7 @@ services:
       - 443
     volumes:
       - ./public:/var/www/html
-    restart: always
+    restart: unless-stopped
     environment:
       - VIRTUAL_HOST=$VIRTUAL_HOST
       - LETSENCRYPT_HOST=$LETSENCRYPT_HOST

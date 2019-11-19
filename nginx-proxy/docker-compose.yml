@@ -9,7 +9,7 @@ services:
   nginx-proxy:
     container_name: nginx-proxy
     image: jwilder/nginx-proxy
-    restart: always
+    restart: unless-stopped
     ports:
       - 80:80
       - 443:443
@@ -23,7 +23,7 @@ services:
   nginx-proxy-letsencrypt:
     container_name: nginx-proxy-letsencrypt
     image: jrcs/letsencrypt-nginx-proxy-companion
-    restart: always
+    restart: unless-stopped
     volumes: 
       - certs:/etc/nginx/certs
       - vhost.d:/etc/nginx/vhost.d

@@ -9,7 +9,7 @@ services:
       - 443
     volumes:
       - ./public:/var/www/html
-    restart: always
+    restart: unless-stopped
     environment:
       - VIRTUAL_HOST=$VIRTUAL_HOST
       - LETSENCRYPT_HOST=$LETSENCRYPT_HOST
